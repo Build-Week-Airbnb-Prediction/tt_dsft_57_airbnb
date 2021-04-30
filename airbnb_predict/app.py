@@ -11,10 +11,11 @@ from joblib import load
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from category_encoders import OrdinalEncoder
-from random import randint
 from sklearn.pipeline import make_pipeline
-import pickle
+from random import randint
 from .models import DB, Listing
+import pickle
+import joblib
 
 
 def create_app():
@@ -29,7 +30,7 @@ def create_app():
 
     features = load_features()
 
-    airbnb_model = load('forest_model_best.pkl')
+    airbnb_model = joblib.load('forest_model_best.pkl')
 
     listing = {}
 
@@ -44,7 +45,7 @@ def create_app():
 
             DB.session.add(Listing(id=randint(0, 100_000), **listing))
             DB.session.commit()
-            
+            predicted_rate = vectorizer(listing)
             predicted_rate = get_prediction(
                 airbnb_model, transform_input_data(listing))
             predict_message = f"Your suggested price is ${predicted_rate:.2f}"
@@ -112,14 +113,23 @@ def get_input_data():
     listing = {}
     features = load_features()
     data = request.form.to_dict(flat=False)
+    # 1st load labelencoder
+    labelencoder = joblib.load("le_file.pkl")
+    # 2nd load trained scaler
+    scaler = joblib.load("scaler.pkl")
     for key, value in data.items():
         if features[key]['type'] == "number":
             listing[key] = float(value[0])
-        elif features[key]['type'] == "latitude":
-            listing[key] = int(value[0])
+        if features[key] == 'property_type':
+            label_encoded_user_vector = labelencoder.transform(listing['property_type'])
+            value = scaler.transform(label_encoded_user_vector)
+            listing['property_type'] = float(value)
+        if features[key] == 'room_type':
+            label_encoded_user_vector = labelencoder.transform(listing['room_type'])
+            value = scaler.transform(label_encoded_user_vector)
+            listing['room_type'] = float(value)
         else:
             listing[key] = value[0]
-
     return listing
 
 
@@ -161,14 +171,13 @@ def update_default_features(listing):
     return data
 
 
-def data_vectorizer(listing):
+def vectorizer(listing):
     # 1st load labelencoder
-    labelencoder = pickle.load("le_file.pkl")
+    labelencoder = joblib.load("le_file.pkl")
     # 2nd load trained scaler
-    scaler = pickle.load("scaler.pkl")
-    # transform the raw data
-    label_encoded_user_vector = labelencoder.transform(listing)
-    encoded_user_vector = scaler.transform(label_encoded_user_vector)
-    pred_price = model.predict(encoded_user_vector)
-    return pred_price
-
+    scaler = joblib.load("scaler.pkl")
+    if listing:
+        label_encoded_user_vector = labelencoder.transform(listing)
+        value = scaler.transform(label_encoded_user_vector)
+        listing = float(value)
+    return listing
