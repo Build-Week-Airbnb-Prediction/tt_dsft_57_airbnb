@@ -1,0 +1,1 @@
+web: gunicorn airbnb_predict:APP -t 120
