@@ -11,7 +11,9 @@ from joblib import load
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from category_encoders import OrdinalEncoder
+from random import randint
 from sklearn.pipeline import make_pipeline
+
 from .models import DB, Listing
 
 
