@@ -3,7 +3,7 @@
 ## About The App & It's Functionality
 A collaboration on building a Airbnb price suggestor app that uses a predictive model trained on historical booking data from Airbnb to predict optimal pricing for a person's property(ies). Airbnb Price Suggestor will allow a user to predict the trends for optimal pricing for their properties based on variables such as location, rooms and other features. The user will be able to manage multiple properties at different locations and be able to make adjustments to their expectations for booking, as well as what they should be charging. 
 
-## Data Description
+## Data Usage
 The dataset for this project was used from the Kaggle NYC Airbnb 2019 datasets. We used a random forest model in order to suggest the optimal price of a property based on the given features. Our app was built using Flask as its development framework for the front end and SQLAlchemy for handling the database end.
 
 ## How To Run The Airbnb Optimal Price Suggestor App
