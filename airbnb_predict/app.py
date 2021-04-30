@@ -146,6 +146,7 @@ def update_default_features(listing):
         data['baths']['default'] = listing['baths']
         data['beds']['default'] = listing['beds']
         data['property_type']['default'] = listing['property_type']
+        data['room_type']['default'] = listing['room_type']
         data['availability_365']['default'] = listing['availability_365']
         data['minimum_nights']['default'] = listing['minimum_nights']
         data['maximum_nights']['default'] = listing['maximum_nights']
