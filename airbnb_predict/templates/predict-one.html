@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="listing-info">
+    <h2>{{ title }}</h2>
+
+    <form action="/" method="post">
+        {% for feature, attributes in forms.items() %}
+        <label for="{{ feature }}">{{ attributes['label'] }}</label>
+        {% if attributes['type']=="number" %}
+        <input type="number" name="{{ feature }}" min="{{ attributes['min'] }}" max="{{ attributes['max'] }}"
+            step="{{ attributes['step'] }}" value="{{ attributes['default'] }}">
+        {% elif attributes['type']=="choice" %}
+        <select name="{{ feature }}" id="{{ feature }}">
+            <option value="{{ attributes['default'] }}">{{ attributes['default'] }}</option><!-- DEFAULT VALUE -->
+            {% for option in attributes['options'] %}
+            <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        {% elif attributes['type'] == "latitude" %}
+        <input type="text" name="{{ feature }}" pattern="[0-9]{5}" title="Latitude" ,
+            value="{{ attributes['default'] }}">
+        {% endif %}
+        {% endfor %}
+        <input type="submit" value="Suggested Price">
+    </form>
+    <h2>{{ message }}</h2>
+
+</div>
+
+{% endblock %}

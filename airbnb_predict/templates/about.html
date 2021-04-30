@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+<div class='myDiv'>
+    <h2>ABOUT</h2>
+    <h4> airbnb</h4>
+        <p>A collaboration on building a Airbnb price suggestor app</p>
+
+    <h4>APP FUNCTIONALITY DESCRIPTION</h4>
+        <p>For our Unit Project, we were handed the task of developing an app that uses a predictive model trained on historical booking data from Airbnb
+        to predict optimal pricing for a person's properties. Airbnb Optimal Price will allow a user to predict the trends for optimal pricing for their
+        properties based on variables such as location, time of year and other features. The user will be able to manage multiple properties at different
+        locations and be able to make adjustments to their expectations for booking, as well as what they should be charging.</p>
+
+    <h4>THE DATA</h4>
+        <p>The dataset for this project was used from the Kaggle NYC Airbnb 2019 datasets.
+
+    <h4>SOLUTION DESCRIPTION</h4>
+        <p>In order to be able to utilize this dataset, we used a random forest model in order to suggest the optimal price of a property based on the given features.
+        Our app was built using Flask as its development framework for the front end and SQLAlchemy for handling the database end.</p>
+
+    <h4>RUNNING OUR APP LOCALLY</h4>
+        <p>Pull the repo into your local machine using git clone.</p>
+        <p>Run: export FLASK_APP=app.py</p>
+        <p>cd into your Airbnb_Price_Suggester directory</p>
+        <p>Run: flask run</p>
+
+    <h4>CREDITS</h4>
+        <p>This project was made possible by the following contributors:</p>
+        <p><a href= 'https://github.com/mbenbanaste'> Murat Benbanaste</a></p>
+        <p><a href= 'https://github.com/WaqasKhwaja'> Waqas Khwaja</a></p>
+        <p><a href= 'https://github.com/Andrew-Haney'> Andrew Haney</a></p>
+        <p><a href= 'https://github.com/Angello-8bit'> Angello Reyes</a></p>
+</div>
+{% endblock %}
