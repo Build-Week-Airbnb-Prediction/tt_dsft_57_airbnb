@@ -8,8 +8,8 @@
 
 ## How To Run The Airbnb Price Suggestor App
 Pull the repo into your local machine using git clone.  
-Run export FLASK_APP=app.py  
-Change directory into your Airbnb_Price_Suggester directory  
+Change directory to your Airbnb_Price_Suggester directory.  
+Run set/export FLASK_APP=app.py    
 Run flask run  
 
 ## Contributors
