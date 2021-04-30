@@ -6,7 +6,7 @@
 ## Data Usage
   The dataset for this project was used from the Kaggle NYC Airbnb 2019 datasets. We used a random forest model in order to suggest the optimal price of a property based on the given features. Our app was built using Flask as its development framework for the front end and SQLAlchemy for handling the database end.
 
-## How To Run The Airbnb Optimal Price Suggestor App
+## How To Run The Airbnb Price Suggestor App
 Pull the repo into your local machine using git clone.  
 Run export FLASK_APP=app.py  
 Change directory into your Airbnb_Price_Suggester directory  
