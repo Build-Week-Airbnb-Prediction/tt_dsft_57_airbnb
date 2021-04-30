@@ -13,7 +13,7 @@ from sklearn.impute import SimpleImputer
 from category_encoders import OrdinalEncoder
 from random import randint
 from sklearn.pipeline import make_pipeline
-
+import pickle
 from .models import DB, Listing
 
 
@@ -159,4 +159,16 @@ def update_default_features(listing):
         json.dump(data, file)
 
     return data
+
+
+def data_vectorizer(listing):
+    # 1st load labelencoder
+    labelencoder = pickle.load("le_file.pkl")
+    # 2nd load trained scaler
+    scaler = pickle.load("scaler.pkl")
+    # transform the raw data
+    label_encoded_user_vector = labelencoder.transform(listing)
+    encoded_user_vector = scaler.transform(label_encoded_user_vector)
+    pred_price = model.predict(encoded_user_vector)
+    return pred_price
 
