@@ -8,9 +8,9 @@ The dataset for this project was used from the Kaggle NYC Airbnb 2019 datasets. 
 
 ## How To Run The Airbnb Optimal Price Suggestor App
 Pull the repo into your local machine using git clone.  
-Run: export FLASK_APP=app.py  
+Run export FLASK_APP=app.py  
 Change directory into your Airbnb_Price_Suggester directory  
-Run: flask run  
+Run flask run  
 
 ## Contributors
 ### This project was made possible by the following members:  
