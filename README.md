@@ -13,8 +13,8 @@ Run set/export FLASK_APP=airbnb_predict
 Run flask run  
 
 ## Contributors
-#### This project was made possible by the following members:  
-Murat Benbanaste: https://github.com/mbenbanaste  
+#### This project was made possible by the following members:    
 Waqas Khwaja: https://github.com/WaqasKhwaja  
-Andrew Haney: https://github.com/Andrew-Haney  
+Andrew Haney: https://github.com/Andrew-Haney
+Murat Benbanaste: https://github.com/mbenbanaste
 Angello Reyes: https://github.com/Angello-8bit  
