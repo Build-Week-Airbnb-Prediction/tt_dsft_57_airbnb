@@ -16,5 +16,7 @@ Run flask run
 #### This project was made possible by the following members:    
 Waqas Khwaja: https://github.com/WaqasKhwaja  
 Andrew Haney: https://github.com/Andrew-Haney
+
 Murat Benbanaste: https://github.com/mbenbanaste
+
 Angello Reyes: https://github.com/Angello-8bit  
