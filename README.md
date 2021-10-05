@@ -14,7 +14,7 @@ Run flask run
 
 ## Contributors
 #### This project was made possible by the following members:    
-KanadeFuzen: https://github.com/KanadeFuzen  
+Kanade Fuzen: https://github.com/KanadeFuzen  
 Andrew Haney: https://github.com/Andrew-Haney  
 Murat Benbanaste: https://github.com/mbenbanaste  
 Angello Reyes: https://github.com/Angello-8bit  
